@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Contact Details</title>
+    <script>
+        function submit(){
+            var _name = getElementById("name");
+            var _email = getElementById("email");
+            if (!validateName(_name)){
+                alert("Enter valid name!");
+                reset();
+            }
+            if (!validateEmail(_email)){
+                alert("Enter valid email!");
+                reset()
+            }
+            dump("Success!")
+        };
+
+        function reset(){
+            document.getElementsByType("text").value="";
+        }
+
+        function validateName(name) {
+            const re = /^[a-zA-Z]+$/;
+            return re.test(String(name).toLowerCase());
+        }
+
+        function validateEmail(email) {
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
+    </script>
+    </head>
+    <body>
+        <h2>Enter your contact Details:</h2> <br>
+        <form id="form1">
+            <label for="name">Name :</label>
+            <input type="text" id="name" name="name">
+            <br>
+            <br>
+            <label for="email">E-mail ID :</label>
+            <input type="text" id="email" name="email">
+            <br>
+            <br>
+            <input type="submit" value="Submit" onclick="submit()">
+            <input type="reset" value="Reset" onclick="reset()">
+        </form>
+</html>
